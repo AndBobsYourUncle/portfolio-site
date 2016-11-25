@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  portfolio-site:
+    build: ./
+    image: andbobsyouruncle/portfolio-site:${TAG}
+    container_name: portfolio-site
+    restart: always
+    networks:
+      - back
+      - front
+    environment:
+      # VIRTUAL_HOST: portfolio-site.localhost
+      VIRTUAL_HOST: portfolio-site.nicholasportfolio.com
+      VIRTUAL_PORT: 443
+      LETSENCRYPT_HOST: portfolio-site.nicholasportfolio.com
+      LETSENCRYPT_EMAIL: admin@nicholasportfolio.com
+networks:
+  front:
+    external:
+      name: traffic_front
+  back:
+    external:
+      name: traffic_back
