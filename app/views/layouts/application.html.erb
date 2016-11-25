@@ -9,7 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="menu">
+      <a href="/" data-push="true" data-target="#contents" id="home_button" class="element">
+        <div class="symbol">Home</div>
+      </a>
+      <a href="/contact" data-push="true" data-target="#contents" id="contact_button" class="element">
+        <div class="symbol">Contact</div>
+      </a>
+    </div>
+
+    <div id="contents"><%= yield %></div>
+
     <div id="container"></div>
   </body>
 </html>

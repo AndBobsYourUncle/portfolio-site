@@ -4,6 +4,6 @@ class StaticPagesController < ApplicationController
   end
   def home
   end
-  def contacts
+  def contact
   end
 end

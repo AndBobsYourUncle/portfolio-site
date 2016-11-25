@@ -144,20 +144,20 @@ window.init = () ->
   element.className = 'element';
   element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
-  number = document.createElement( 'div' );
-  number.className = 'number';
-  number.textContent = (i/5) + 1;
-  element.appendChild( number );
+  # number = document.createElement( 'div' );
+  # number.className = 'number';
+  # number.textContent = (i/5) + 1;
+  # element.appendChild( number );
 
   symbol = document.createElement( 'div' );
   symbol.className = 'symbol';
   symbol.textContent = table[ i ];
   element.appendChild( symbol );
 
-  details = document.createElement( 'div' );
-  details.className = 'details';
-  details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
-  element.appendChild( details );
+  # details = document.createElement( 'div' );
+  # details.className = 'details';
+  # details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+  # element.appendChild( details );
 
   object = new THREE.CSS3DObject( element );
   object.position.x = 0;#Math.random() * 4000 - 2000;
@@ -188,6 +188,13 @@ window.init = () ->
     .start();
   );
 
+  # object2 = new THREE.CSS3DObject( $('#home_button')[ 0 ] );
+  # object2.position.x = 0;#Math.random() * 4000 - 2000;
+  # object2.position.y = 0;#Math.random() * 4000 - 2000;
+  # object2.position.z = 0;#Math.random() * 4000 - 2000;
+
+  # scene.add( object2 );
+
   window.addEventListener( 'resize', onWindowResize, false );
 
   render()
@@ -207,6 +214,6 @@ window.animate = () ->
 window.render = () ->
   renderer.render( scene, camera );
 
-$(document).ready ->
-  init()
-  animate()
+# $(document).ready ->
+#   init()
+#   animate()
