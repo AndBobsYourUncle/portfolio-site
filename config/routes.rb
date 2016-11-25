@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root                    to: 'static_pages#home'
 
   get '/contacts',        to: 'static_pages#contacts'
+
+  get "*any", via: :all,  to: "errors#not_found"
 end
