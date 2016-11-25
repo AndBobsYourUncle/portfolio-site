@@ -138,55 +138,55 @@ window.init = () ->
   renderer.domElement.style.position = 'absolute';
   document.getElementById( 'container' ).appendChild( renderer.domElement );
 
-  i = 0
+  # i = 0
 
-  element = document.createElement( 'div' );
-  element.className = 'element';
-  element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+  # element = document.createElement( 'div' );
+  # element.className = 'element';
+  # element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
-  # number = document.createElement( 'div' );
-  # number.className = 'number';
-  # number.textContent = (i/5) + 1;
-  # element.appendChild( number );
+  # # number = document.createElement( 'div' );
+  # # number.className = 'number';
+  # # number.textContent = (i/5) + 1;
+  # # element.appendChild( number );
 
-  symbol = document.createElement( 'div' );
-  symbol.className = 'symbol';
-  symbol.textContent = table[ i ];
-  element.appendChild( symbol );
+  # symbol = document.createElement( 'div' );
+  # symbol.className = 'symbol';
+  # symbol.textContent = table[ i ];
+  # element.appendChild( symbol );
 
-  # details = document.createElement( 'div' );
-  # details.className = 'details';
-  # details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
-  # element.appendChild( details );
+  # # details = document.createElement( 'div' );
+  # # details.className = 'details';
+  # # details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+  # # element.appendChild( details );
 
-  object = new THREE.CSS3DObject( element );
-  object.position.x = 0;#Math.random() * 4000 - 2000;
-  object.position.y = 0;#Math.random() * 4000 - 2000;
-  object.position.z = 0;#Math.random() * 4000 - 2000;
-  object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
-  object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+  # object = new THREE.CSS3DObject( element );
+  # object.position.x = 0;#Math.random() * 4000 - 2000;
+  # object.position.y = 0;#Math.random() * 4000 - 2000;
+  # object.position.z = 0;#Math.random() * 4000 - 2000;
+  # object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+  # object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
 
-  scene.add( object );
+  # scene.add( object );
 
-  element.parent = object;
-  object.element.addEventListener('click', () ->
-    # TWEEN.removeAll();
+  # element.parent = object;
+  # object.element.addEventListener('click', () ->
+  #   # TWEEN.removeAll();
 
-    new TWEEN.Tween( object.position )
-    .to( {x: 1000, y:0}, 2000)
-    .easing( TWEEN.Easing.Exponential.InOut )
-    .start();
+  #   new TWEEN.Tween( object.position )
+  #   .to( {x: 1000, y:0}, 2000)
+  #   .easing( TWEEN.Easing.Exponential.InOut )
+  #   .start();
 
-    new TWEEN.Tween( object.rotation )
-    .to( {x: Math.PI * 2}, 2000)
-    .easing( TWEEN.Easing.Linear.None )
-    .start();
+  #   new TWEEN.Tween( object.rotation )
+  #   .to( {x: Math.PI * 2}, 2000)
+  #   .easing( TWEEN.Easing.Linear.None )
+  #   .start();
 
-    new TWEEN.Tween( this )
-    .to( {}, 2000 * 2 )
-    .onUpdate( render )
-    .start();
-  );
+  #   new TWEEN.Tween( this )
+  #   .to( {}, 2000 * 2 )
+  #   .onUpdate( render )
+  #   .start();
+  # );
 
   # object2 = new THREE.CSS3DObject( $('#home_button')[ 0 ] );
   # object2.position.x = 0;#Math.random() * 4000 - 2000;
