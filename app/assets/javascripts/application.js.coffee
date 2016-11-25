@@ -18,3 +18,10 @@
 
 $(document).ready ->
     window.wiselinks = new Wiselinks()
+
+    $(document).off('page:loading').on(
+        'page:loading'
+        (event, $target, render, url) ->
+            console.log("Loading: #{url} to #{$target.selector} within '#{render}'")
+            # code to start loading animation
+    )
