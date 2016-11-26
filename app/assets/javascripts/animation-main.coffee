@@ -188,12 +188,26 @@ window.init = () ->
   #   .start();
   # );
 
-  # object2 = new THREE.CSS3DObject( $('#home_button')[ 0 ] );
-  # object2.position.x = 0;#Math.random() * 4000 - 2000;
-  # object2.position.y = 0;#Math.random() * 4000 - 2000;
-  # object2.position.z = 0;#Math.random() * 4000 - 2000;
+  object2 = new THREE.CSS3DObject( $('#home_button')[ 0 ] );
+  object2.position.x = -425;
+  object2.position.y = 270;
+  object2.position.z = 1700;
 
-  # scene.add( object2 );
+  scene.add( object2 );
+
+  object3 = new THREE.CSS3DObject( $('#contact_button')[ 0 ] );
+  object3.position.x = -425;
+  object3.position.y = 220;
+  object3.position.z = 1700;
+
+  scene.add( object3 );
+
+  object4 = new THREE.CSS3DObject( $('#contents')[ 0 ] );
+  object4.position.x = 70;
+  object4.position.y = 0;
+  object4.position.z = 1660;
+
+  scene.add( object4 );
 
   window.addEventListener( 'resize', onWindowResize, false );
 
@@ -214,6 +228,6 @@ window.animate = () ->
 window.render = () ->
   renderer.render( scene, camera );
 
-# $(document).ready ->
-#   init()
-#   animate()
+$(document).ready ->
+  init()
+  animate()

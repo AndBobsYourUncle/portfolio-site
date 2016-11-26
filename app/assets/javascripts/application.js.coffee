@@ -17,11 +17,19 @@
 #= require_tree .
 
 $(document).ready ->
-    window.wiselinks = new Wiselinks()
+    window.wiselinks = new Wiselinks($('#contents'))
 
     $(document).off('page:loading').on(
         'page:loading'
         (event, $target, render, url) ->
             console.log("Loading: #{url} to #{$target.selector} within '#{render}'")
             # code to start loading animation
+            # $('#contents').hide()
+    )
+
+    $(document).off('page:done').on(
+        'page:done'
+        (event, $target, status, url, data) ->
+            console.log("Wiselinks status: '#{status}'")
+            # $('#contents').show()
     )

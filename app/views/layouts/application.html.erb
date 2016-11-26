@@ -9,16 +9,18 @@
   </head>
 
   <body>
-    <div id="menu">
-      <a href="/" data-push="true" data-target="#contents" id="home_button" class="menu_panel">
-        <div class="text">Home</div>
-      </a>
-      <a href="/contact" data-push="true" data-target="#contents" id="contact_button" class="menu_panel">
-        <div class="text">Contact</div>
-      </a>
-    </div>
+    <div class="main_container">
+      <div id="menu">
+        <a href="/" data-push="true" data-target="#contents" id="home_button" class="menu_panel">
+          <div class="text">Home</div>
+        </a>
+        <a href="/contact" data-push="true" data-target="#contents" id="contact_button" class="menu_panel">
+          <div class="text">Contact</div>
+        </a>
+      </div>
 
-    <div id="contents"><%= yield %></div>
+      <div id="contents" class="content_panel"><%= yield %></div>
+    </div>
 
     <div id="container"></div>
   </body>
