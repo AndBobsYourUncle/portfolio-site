@@ -24,26 +24,20 @@ window.init = () ->
   $('#home_button').click( () ->
     obj = $( this )[0].parent
 
-    if obj.rotation.x == Math.PI * 2
-      new TWEEN.Tween( obj.rotation )
-      .to( {x: 0}, 2000)
-      .easing( TWEEN.Easing.Linear.None )
-      .start();
+    targetX = Math.PI * 2
 
-      new TWEEN.Tween( this )
-      .to( {}, 2000 * 2 )
-      .onUpdate( render )
-      .start();
-    else if obj.rotation.x == 0
-      new TWEEN.Tween( obj.rotation )
-      .to( {x: Math.PI * 2}, 2000)
-      .easing( TWEEN.Easing.Linear.None )
-      .start();
+    if obj.rotation.x == targetX
+      targetX = 0
 
-      new TWEEN.Tween( this )
-      .to( {}, 2000 * 2 )
-      .onUpdate( render )
-      .start();
+    new TWEEN.Tween( obj.rotation )
+    .to( {x: targetX}, 1000)
+    .easing( TWEEN.Easing.Linear.None )
+    .start();
+
+    new TWEEN.Tween( this )
+    .to( {}, 1000 )
+    .onUpdate( render )
+    .start();
   )
 
   object2 = new THREE.CSS3DObject( $('#contact_button')[ 0 ] )
