@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 DEPLOY_FILE=`base64 docker-compose.yml`
 
 cat <<EOF > deploy.json
