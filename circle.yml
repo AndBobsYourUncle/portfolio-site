@@ -21,8 +21,6 @@ database:
     - docker version
 
 deployment:
-  cache_directories:
-    - "~/docker"
   release:
     # branch: master
     tag: /^([0-9]+\.{0,1}){1,3}(\-([a-z0-9]+\.{0,1})+){0,1}(\+(build\.{0,1}){0,1}([a-z0-9]+\.{0,1}){0,}){0,1}$/
