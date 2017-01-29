@@ -2,12 +2,14 @@ machine:
   services:
     - docker
 
+# dependencies:
+#   override:
+#     - docker info
 dependencies:
-  cache_directories:
-    - "~/docker"
+  pre:
+    - docker login -e $REGISTRY_EMAIL -u $REGISTRY_USER -p $REGISTRY_PASS
   override:
-    - docker info
-    - docker load -i ~/docker/
+    - docker pull $REGISTRY_USER/$APP_NAME:latest || true
 
 test:
   override:
@@ -29,6 +31,6 @@ deployment:
       - docker login -e $REGISTRY_EMAIL -u $REGISTRY_USER -p "$REGISTRY_PASS"
       - docker build --rm=false -t $REGISTRY_USER/$APP_NAME:$CIRCLE_TAG .
       - docker push $REGISTRY_USER/$APP_NAME:$CIRCLE_TAG
-      - mkdir -p ~/docker; docker save -o ~/docker/docker-cache.tar $(docker images -q)
+      - docker push $REGISTRY_USER/$APP_NAME:latest
       - chmod +x deploy.sh
       - sh deploy.sh
