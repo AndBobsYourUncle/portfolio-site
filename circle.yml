@@ -3,8 +3,11 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
   override:
     - docker info
+    - docker load -i ~/docker/
 
 test:
   override:
@@ -18,6 +21,8 @@ database:
     - docker version
 
 deployment:
+  cache_directories:
+    - "~/docker"
   release:
     # branch: master
     tag: /^([0-9]+\.{0,1}){1,3}(\-([a-z0-9]+\.{0,1})+){0,1}(\+(build\.{0,1}){0,1}([a-z0-9]+\.{0,1}){0,}){0,1}$/
@@ -26,5 +31,6 @@ deployment:
       - docker login -e $REGISTRY_EMAIL -u $REGISTRY_USER -p "$REGISTRY_PASS"
       - docker build --rm=false -t $REGISTRY_USER/$APP_NAME:$CIRCLE_TAG .
       - docker push $REGISTRY_USER/$APP_NAME:$CIRCLE_TAG
+      - mkdir -p ~/docker; docker save -o ~/docker/docker-cache.tar $(docker images -q)
       - chmod +x deploy.sh
       - sh deploy.sh
