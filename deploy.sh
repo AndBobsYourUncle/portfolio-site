@@ -13,6 +13,7 @@ cat <<EOF > deploy.json
   },
   "extra": {
     "TAG": "$CIRCLE_TAG"
+    "SECRET_KEY_BASE" : "$SECRET_KEY_BASE"
   }
 }
 EOF
