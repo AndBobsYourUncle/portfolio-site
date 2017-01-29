@@ -12,7 +12,7 @@ cat <<EOF > deploy.json
     "password": "$REGISTRY_PASS"
   },
   "extra": {
-    "TAG": "$CIRCLE_TAG"
+    "TAG": "$CIRCLE_TAG",
     "SECRET_KEY_BASE" : "$SECRET_KEY_BASE"
   }
 }
