@@ -10,11 +10,11 @@ services:
       - back
       - front
     environment:
-      # VIRTUAL_HOST: portfolio-site.localhost
-      VIRTUAL_HOST: portfolio-site.nicholasportfolio.com
-      VIRTUAL_PORT: 443
-      LETSENCRYPT_HOST: portfolio-site.nicholasportfolio.com
-      LETSENCRYPT_EMAIL: admin@nicholasportfolio.com
+      - VIRTUAL_HOST=portfolio-site.nicholasportfolio.com
+      - VIRTUAL_PORT=443
+      - LETSENCRYPT_HOST=portfolio-site.nicholasportfolio.com
+      - LETSENCRYPT_EMAIL=admin@nicholasportfolio.com
+      - SECRET_KEY_BASE
 networks:
   front:
     external:
