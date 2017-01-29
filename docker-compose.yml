@@ -4,6 +4,7 @@ services:
   portfolio-site:
     build: ./
     image: andbobsyouruncle/portfolio-site:${TAG}
+    command: bash -c "rails-init && /sbin/my_init"
     container_name: portfolio-site
     restart: always
     networks:
